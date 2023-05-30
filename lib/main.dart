@@ -112,7 +112,7 @@ class _TelaLoginState extends State<TelaLogin> {
         _errorMessage = 'Por favor, preencha todos os campos.';
       });
     } else {
-      Navigator.pushNamed(context, '/home', arguments: username);
+      Navigator.pushReplacementNamed(context, '/home', arguments: username);
     }
   }
 
@@ -301,7 +301,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   File? _selectedImage;
-  double _saldo = 420.69;
+  double _saldo = 1000.00;
   bool _censurado = false;
   void _alternarCensura() {
     setState(() {
@@ -309,12 +309,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  String _textoBotao = 'Ver Saldo';
+  String _textoBotao = 'Ocultar Saldo';
 
   void _alternarTextoBotao() {
     setState(() {
       _textoBotao =
-          (_textoBotao == 'Ver Saldo') ? 'Ocultar Saldo' : 'Ver Saldo';
+          (_textoBotao == 'Ocultar Saldo') ? 'Ver Saldo' : 'Ocultar Saldo';
     });
   }
 
@@ -475,18 +475,20 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TelaPix()),
-                      );
+                      Navigator.pushNamed(context, '/pix');
                     },
                     child: Column(
                       children: [
-                        Image.network(
-                          'https://imagensfree.com.br/wp-content/uploads/2022/01/icone-pix.png',
+                        CachedNetworkImage(
+                          imageUrl:
+                              'https://imagensfree.com.br/wp-content/uploads/2022/01/icone-pix.png',
                           width: 48,
                           height: 48,
                           fit: BoxFit.cover,
+                          placeholder: (context, url) =>
+                              CircularProgressIndicator(),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
                         SizedBox(height: 8),
                         Text('Pix'),
@@ -998,7 +1000,7 @@ class _TelaPixState extends State<TelaPix> {
                           IconButton(
                             icon: Icon(Icons.arrow_back),
                             onPressed: () {
-                              // Ação do botão de voltar
+                              Navigator.pop(context);
                             },
                           ),
                           SizedBox(width: 100),
@@ -1078,7 +1080,26 @@ class _TelaPixState extends State<TelaPix> {
                                 IconButton(
                                   icon: Icon(Icons.vpn_key),
                                   onPressed: () {
-                                    // Ação do botão de Minhas Chaves
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text('Disponível em breve'),
+                                        content: Text(
+                                            'Recurso "Minhas Chaves" estará disponível em breve.'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'OK',
+                                              style: TextStyle(
+                                                  color: Colors.orange),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 ),
                                 Text('Minhas\nChaves'),
@@ -1089,7 +1110,26 @@ class _TelaPixState extends State<TelaPix> {
                                 IconButton(
                                   icon: Icon(Icons.favorite),
                                   onPressed: () {
-                                    // Ação do botão de Meus Favoritos
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text('Disponível em breve'),
+                                        content: Text(
+                                            'Recurso "Meus Favoritos" estará disponível em breve.'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'OK',
+                                              style: TextStyle(
+                                                  color: Colors.orange),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ); // Ação do botão de Meus Favoritos
                                   },
                                 ),
                                 Text('  Meus\nFavoritos'),
@@ -1100,7 +1140,26 @@ class _TelaPixState extends State<TelaPix> {
                                 IconButton(
                                   icon: Icon(Icons.receipt),
                                   onPressed: () {
-                                    // Ação do botão de Extrato Devolução
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text('Disponível em breve'),
+                                        content: Text(
+                                            'Recurso "Extrato Devolução" estará disponível em breve.'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'OK',
+                                              style: TextStyle(
+                                                  color: Colors.orange),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ); // Ação do botão de Extrato Devolução
                                   },
                                 ),
                                 Text('  Extrato\nDevolução'),
@@ -1111,7 +1170,26 @@ class _TelaPixState extends State<TelaPix> {
                                 IconButton(
                                   icon: Icon(Icons.keyboard_option_key_sharp),
                                   onPressed: () {
-                                    // Ação do botão de Meus Limites
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        title: Text('Disponível em breve'),
+                                        content: Text(
+                                            'Recurso "Meus Limites" estará disponível em breve.'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'OK',
+                                              style: TextStyle(
+                                                  color: Colors.orange),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ); // Ação do botão de Meus Limites
                                   },
                                 ),
                                 Text(' Meus\nLimites'),
@@ -1381,19 +1459,20 @@ class _TelaReceberPixState extends State<TelaReceberPix> {
                             ) //por QR Code aqui
                             ),
                       ),
-                      SizedBox(height: 20),
-                      Text(
-                        'Chave de e-mail:',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
                       SizedBox(height: 15),
-                      Text(
-                        '                        Compartilhar',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.orange,
-                            fontWeight: FontWeight.bold),
+                      Text.rich(
+                        TextSpan(
+                          text: 'Chave de e-mail:',
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.bold),
+                          children: <InlineSpan>[
+                            TextSpan(
+                              text: ' example@gmail.com',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 114, 114, 114)),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(height: 20),
                     ],
