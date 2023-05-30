@@ -390,27 +390,27 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(fontSize: 30),
                       ),
                     ),
-                    SizedBox(height: 10), // Espaço entre o texto e o botão
+                    SizedBox(height: 10),
                     Row(
                       children: [
                         Flexible(
                           fit:
-                              FlexFit.tight, // Fixa o espaço ocupado pelo texto
+                              FlexFit.tight,
                           child: Text(
                             'R\$ $_textoCensurado',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
                         SizedBox(
-                          width: 120, // Defina o tamanho desejado para o botão
+                          width: 120,
                           child: ElevatedButton(
                             onPressed: () {
                               _alternarCensura();
-                              _alternarTextoBotao(); // Atualiza o texto do botão
+                              _alternarTextoBotao(); 
                             },
                             style: ElevatedButton.styleFrom(
                               padding: EdgeInsets
-                                  .zero, // Remove o padding interno do botão
+                                  .zero, 
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                     10), // Define a mesma borda do container
@@ -434,15 +434,15 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 200,
                   width:
-                      325, // Aumente a largura para deixar a imagem mais larga
+                      325, 
                   margin: EdgeInsets.symmetric(vertical: 40),
                   decoration: BoxDecoration(
                     borderRadius:
-                        BorderRadius.circular(20), // Define as pontas redondas
+                        BorderRadius.circular(20), 
                   ),
                   child: ClipRRect(
                     borderRadius:
-                        BorderRadius.circular(20), // Define as pontas redondas
+                        BorderRadius.circular(20), 
                     child: CachedNetworkImage(
                       imageUrl:
                           'https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/PearlJam-Ten2.jpg/220px-PearlJam-Ten2.jpg',
@@ -1056,7 +1056,7 @@ class _TelaPixState extends State<TelaPix> {
                           trailing: Icon(Icons.arrow_forward),
                           onTap: () {
                             Navigator.pushReplacementNamed(context,
-                                "/receber-pix"); // Ação do botão de receber
+                                "/receber-pix"); 
                           },
                         ),
                       ),
@@ -1238,7 +1238,7 @@ class _TelaPagarPixState extends State<TelaPagarPix> {
                   ),
                   child: Column(
                     crossAxisAlignment:
-                        CrossAxisAlignment.start, // Alinhar à esquerda
+                        CrossAxisAlignment.start, 
                     children: [
                       Row(
                         children: [
@@ -1248,7 +1248,7 @@ class _TelaPagarPixState extends State<TelaPagarPix> {
                               Navigator.pushReplacementNamed(
                                 context,
                                 "/pix",
-                              ); // Ação do botão de voltar
+                              ); 
                             },
                           ),
                           SizedBox(width: 40),
