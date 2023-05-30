@@ -951,7 +951,7 @@ class _TelaCotacaoState extends State<TelaCotacao> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors
-                                        .red, // Set the desired color here
+                                        .red, 
                                   ),
                                   child: Text('Limpar'),
                                 ),
@@ -1032,7 +1032,7 @@ class _TelaPixState extends State<TelaPix> {
                           trailing: Icon(Icons.arrow_forward),
                           onTap: () {
                             Navigator.pushReplacementNamed(context,
-                                "/pagar-pix"); // Ação do botão de pagar
+                                "/pagar-pix"); 
                           },
                         ),
                       ),
@@ -1129,7 +1129,7 @@ class _TelaPixState extends State<TelaPix> {
                                           ),
                                         ],
                                       ),
-                                    ); // Ação do botão de Meus Favoritos
+                                    ); 
                                   },
                                 ),
                                 Text('  Meus\nFavoritos'),
@@ -1159,7 +1159,7 @@ class _TelaPixState extends State<TelaPix> {
                                           ),
                                         ],
                                       ),
-                                    ); // Ação do botão de Extrato Devolução
+                                    ); 
                                   },
                                 ),
                                 Text('  Extrato\nDevolução'),
@@ -1422,7 +1422,7 @@ class _TelaReceberPixState extends State<TelaReceberPix> {
                               Navigator.pushReplacementNamed(
                                 context,
                                 "/pix",
-                              ); // Ação do botão de voltar
+                              ); 
                             },
                           ),
                           SizedBox(width: 50),
@@ -1456,7 +1456,7 @@ class _TelaReceberPixState extends State<TelaReceberPix> {
                               version: QrVersions.auto,
                               size: 200,
                               gapless: false,
-                            ) //por QR Code aqui
+                            ) 
                             ),
                       ),
                       SizedBox(height: 15),
